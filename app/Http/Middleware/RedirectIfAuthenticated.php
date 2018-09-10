@@ -9,6 +9,10 @@ class RedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
+     * 
+     * If the user or admin is logged and tries to access the login page again, 
+     * redirects for the right place, whether user or admin go to the 
+     * right 'home' page of each type of user.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -17,10 +21,18 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        switch ($guard) 
+        {
+            case 'admin':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('admin.dashboard');
+                }
+                break;
+            default:
+                if (Auth::guard($guard)->check()) {
+                    return redirect('/home');
+                }         
         }
-
         return $next($request);
     }
 }
