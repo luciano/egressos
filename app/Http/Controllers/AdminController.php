@@ -23,6 +23,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.dashboard');
+    }
+
+    public function createUser() 
+    {
+        return view('admin.create_user');
     }
 }
