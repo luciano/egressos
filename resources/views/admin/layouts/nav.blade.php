@@ -46,6 +46,11 @@
                             <li><a href="{{ route('admin.login') }}">Login</a></li>
                             {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                         @else
+                            <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
+                            <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
+                            <li><a href="{{route('admin.menu.events')}}">Eventos</a></li>
+                            <li><a href="{{route('admin.menu.news')}}">Notícias</a></li>
+                            <li><a href="{{route('admin.menu.opportunities')}}">Oportunidades</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

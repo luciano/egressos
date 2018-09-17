@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('user.home');
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
@@ -36,4 +36,11 @@ Route::prefix('admin')->group(function() {
 
     // create user
     Route::get('/create/user', 'AdminController@createUser')->name('admin.create.user');
+
+    // menu options
+    Route::get('/users', 'AdminController@menuUsers')->name('admin.menu.users');
+    Route::get('/graph', 'AdminController@menuGraph')->name('admin.menu.graph');
+    Route::get('/events', 'AdminController@menuEvents')->name('admin.menu.events');
+    Route::get('/news', 'AdminController@menuNews')->name('admin.menu.news');
+    Route::get('/opportunities', 'AdminController@menuOpportunities')->name('admin.menu.opportunities');
 });
