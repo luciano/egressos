@@ -23,6 +23,39 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.dashboard');
     }
+
+    public function createUser() 
+    {
+        return view('admin.create_user');
+    }
+
+    public function menuUsers()
+    {
+        return 'Users';
+    }
+
+    public function menuGraph()
+    {
+        return view('admin.graph');
+    }
+
+    public function menuEvents()
+    {
+        return 'Events';
+    }
+
+    public function menuNews()
+    {
+        return 'News';
+    }
+
+    public function menuOpportunities()
+    {
+        return 'Opportunities';
+    }
+
 }
+
+
