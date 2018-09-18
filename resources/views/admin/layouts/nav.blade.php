@@ -16,70 +16,73 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+            <div class="navbar-header">
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Branding Image -->
+                <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
+                    {{ config('app.name', 'Egressos') }}
+                </a>
+            </div>
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                </ul>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ route('admin.dashboard') }}">
-                        {{ config('app.name', 'Egressos') }}
-                    </a>
-                </div>
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @guest('admin')
+                        <li><a href="{{ route('admin.login') }}">Login</a></li>
+                        {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
+                    @else
+                        <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
+                        <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
+                        <li><a href="{{route('admin.menu.events')}}">Eventos</a></li>
+                        <li><a href="{{route('admin.news.index')}}">Notícias</a></li>
+                        <li><a href="{{route('admin.menu.opportunities')}}">Oportunidades</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
+                            </a>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('admin.logout') }}"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        Sair
+                                    </a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest('admin')
-                            <li><a href="{{ route('admin.login') }}">Login</a></li>
-                            {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
-                        @else
-                            <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
-                            <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
-                            <li><a href="{{route('admin.menu.events')}}">Eventos</a></li>
-                            <li><a href="{{route('admin.menu.news')}}">Notícias</a></li>
-                            <li><a href="{{route('admin.menu.opportunities')}}">Oportunidades</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('admin.logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Sair
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    @endguest
+                </ul>
             </div>
         </nav>
+        <div class="container">
+            @include('layouts.messages')
+            @yield('content')
+        </div>
 
-        @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('article-ckeditor');
+    </script>
 </body>
 </html>

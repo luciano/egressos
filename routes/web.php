@@ -41,6 +41,23 @@ Route::prefix('admin')->group(function() {
     Route::get('/users', 'AdminController@menuUsers')->name('admin.menu.users');
     Route::get('/graph', 'AdminController@menuGraph')->name('admin.menu.graph');
     Route::get('/events', 'AdminController@menuEvents')->name('admin.menu.events');
-    Route::get('/news', 'AdminController@menuNews')->name('admin.menu.news');
+    
     Route::get('/opportunities', 'AdminController@menuOpportunities')->name('admin.menu.opportunities');
+
+    // news routes
+    Route::resource('news', 'NewsController')->only(['create', 'edit', 'store', 'update', 'destroy'])->names([
+        'create' => 'admin.news.create',
+        'edit' => 'admin.news.edit',
+        'store' => 'admin.news.store',
+        'update' => 'admin.news.update',
+        'destroy' => 'admin.news.destroy'
+    ]);
+    Route::get('/news', 'NewsController@indexAdmin')->name('admin.news.index');
+    Route::get('/news/{id}', 'NewsController@showAdmin')->name('admin.news.show');
+
 });
+
+Route::resource('news', 'NewsController')->only(['index', 'show'])->names([
+    'index' => 'user.news.index',
+    'show' => 'user.news.show'
+]);
