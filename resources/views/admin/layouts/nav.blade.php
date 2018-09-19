@@ -45,7 +45,7 @@
                     @else
                         <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
                         <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
-                        <li><a href="{{route('admin.menu.events')}}">Eventos</a></li>
+                        <li><a href="{{route('admin.events.index')}}">Eventos</a></li>
                         <li><a href="{{route('admin.news.index')}}">Notícias</a></li>
                         <li><a href="{{route('admin.opportunities.index')}}">Oportunidades</a></li>
                         <li class="dropdown">

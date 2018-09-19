@@ -43,7 +43,7 @@
                         <li><a href="{{ route('login') }}">Login</a></li>
                         {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                     @else
-                        <li><a href="{{route('user.home')}}">Eventos</a></li>
+                        <li><a href="{{route('user.events.index')}}">Eventos</a></li>
                         <li><a href="{{route('user.news.index')}}">Notícias</a></li>
                         <li><a href="{{route('user.opportunities.index')}}">Oportunidades</a></li>
                         <li class="dropdown">

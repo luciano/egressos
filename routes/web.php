@@ -66,6 +66,17 @@ Route::prefix('admin')->group(function() {
     Route::get('/opportunities', 'OpportunitiesController@indexAdmin')->name('admin.opportunities.index');
     Route::get('/opportunities/{id}', 'OpportunitiesController@showAdmin')->name('admin.opportunities.show');
 
+    // events routes
+    Route::resource('events', 'EventsController')->only(['create', 'edit', 'store', 'update', 'destroy'])->names([
+        'create' => 'admin.events.create',
+        'edit' => 'admin.events.edit',
+        'store' => 'admin.events.store',
+        'update' => 'admin.events.update',
+        'destroy' => 'admin.events.destroy'
+    ]);
+    Route::get('/events', 'EventsController@indexAdmin')->name('admin.events.index');
+    Route::get('/events/{id}', 'EventsController@showAdmin')->name('admin.events.show');
+
 });
 
 Route::resource('news', 'NewsController')->only(['index', 'show'])->names([
@@ -76,4 +87,9 @@ Route::resource('news', 'NewsController')->only(['index', 'show'])->names([
 Route::resource('opportunities', 'OpportunitiesController')->only(['index', 'show'])->names([
     'index' => 'user.opportunities.index',
     'show' => 'user.opportunities.show'
+]);
+
+Route::resource('events', 'EventsController')->only(['index', 'show'])->names([
+    'index' => 'user.events.index',
+    'show' => 'user.events.show'
 ]);
