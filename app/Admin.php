@@ -45,4 +45,14 @@ class Admin extends Authenticatable
         // a user has many News
         return $this->hasMany('App\News');
     }
+
+    public function opportunities(){
+        // a user has many News
+        return $this->hasMany('App\Opportunities');
+    }
+
+    public function events(){
+        // a user has many News
+        return $this->hasMany('App\Events');
+    }
 }

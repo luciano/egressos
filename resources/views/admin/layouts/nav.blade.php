@@ -45,9 +45,9 @@
                     @else
                         <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
                         <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
-                        <li><a href="{{route('admin.menu.events')}}">Eventos</a></li>
+                        <li><a href="{{route('admin.events.index')}}">Eventos</a></li>
                         <li><a href="{{route('admin.news.index')}}">Notícias</a></li>
-                        <li><a href="{{route('admin.menu.opportunities')}}">Oportunidades</a></li>
+                        <li><a href="{{route('admin.opportunities.index')}}">Oportunidades</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
