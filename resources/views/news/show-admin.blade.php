@@ -18,8 +18,8 @@
     @auth
         {{-- Auth::id() == Auth::user()->id --}}
         @if(Auth::id() == $new->admin_id)
-            <a href="{{route('admin.news.edit', $new->id)}}" class="btn btn-default">Edit</a>
-            {!! Form::open(['action' => ['NewsController@destroy', $new->id], 'method' => 'POST']) !!} 
+            <a href="{{route('admin.news.edit', $new->id)}}" class="btn btn-default">Editar</a>
+            {!! Form::open(['route' => ['admin.news.destroy', $new->id]]) !!} 
             {{-- , 'class' => 'pull-right' --}}
                 {{Form::hidden('_method', 'DELETE')}}
                 {{Form::submit('Delete', ['class' => 'btn btn-danger', 'id' => 'btn-delete'])}}
