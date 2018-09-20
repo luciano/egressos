@@ -1,0 +1,41 @@
+@extends('admin.layouts.nav')
+
+@section('content')
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>Lista de Usuários <a href="{{route('admin.users.index')}}" class="btn btn-default pull-right">Voltar</a></h3>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>CPF</th>
+                            <th>Criado em</th>
+                            <th>Ultima modificação em</th>
+                            <th>Detalhes</th>
+                            <th>Deletar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{!! preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $user->cpf_number) !!}</td>
+                                <td>{{$user->created_at->format('d/m/Y \á\s H:i')}}</td>
+                                <td>{{$user->updated_at->format('d/m/Y \á\s H:i')}}</td>
+                                <td><a href="{{route('admin.users.index')}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                                <td><a href="{{route('admin.users.index')}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            {{$users->links()}} 
+        </div>
+    </div>    
+@endsection

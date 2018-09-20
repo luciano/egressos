@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Admin;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -26,36 +28,37 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function users()
+    {
+        return view('admin.users');
+    }
+
     public function createUser() 
     {
-        return view('admin.create_user');
+        return view('admin.create-user');
     }
 
-    public function menuUsers()
+    public function createAdmin() 
     {
-        return 'Users';
+        return view('admin.create-admin');
     }
 
-    public function menuGraph()
+    public function listUser() 
+    {
+        $users = User::orderBy('created_at', 'desc')->paginate(20);
+        return view('admin.list-user')->with('users', $users);;
+    }
+
+    public function listAdmin() 
+    {
+        $admins = Admin::orderBy('created_at', 'desc')->paginate(20);
+        return view('admin.list-admin')->with('admins', $admins);
+    }
+
+    public function graph()
     {
         return view('admin.graph');
     }
-
-    public function menuEvents()
-    {
-        return 'Events';
-    }
-
-    public function menuNews()
-    {
-        return 'News';
-    }
-
-    public function menuOpportunities()
-    {
-        return 'Opportunities';
-    }
-
 }
 
 

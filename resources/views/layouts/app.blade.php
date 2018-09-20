@@ -72,6 +72,7 @@
         <div class="container">
             @include('layouts.messages')
             @yield('content')
+            @yield('scripts')
         </div>
     </div>
 

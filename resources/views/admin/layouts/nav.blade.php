@@ -43,8 +43,8 @@
                         <li><a href="{{ route('admin.login') }}">Login</a></li>
                         {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                     @else
-                        <li><a href="{{route('admin.menu.users')}}">Usuários</a></li>
-                        <li><a href="{{route('admin.menu.graph')}}">Gráficos</a></li>
+                        <li><a href="{{route('admin.users.index')}}">Usuários</a></li>
+                        <li><a href="{{route('admin.graph.index')}}">Gráficos</a></li>
                         <li><a href="{{route('admin.events.index')}}">Eventos</a></li>
                         <li><a href="{{route('admin.news.index')}}">Notícias</a></li>
                         <li><a href="{{route('admin.opportunities.index')}}">Oportunidades</a></li>
@@ -74,6 +74,7 @@
         <div class="container">
             @include('layouts.messages')
             @yield('content')
+            @yield('scripts')
         </div>
 
     </div>

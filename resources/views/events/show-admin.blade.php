@@ -12,9 +12,9 @@
     <hr>
     <small>Número de Visitas: {{$event->visited}}</small><br>
     @if ($event->created_at != $event->updated_at)
-        <small>Atualizado em {{$event->updated_at->format('d/m/Y')}} às {{$event->updated_at->format('H:i')}}</small><br>
+        <small>Atualizado em {{$event->updated_at->format('d/m/Y \á\s H:i')}}</small><br>
     @endif
-    <small>Escrito em {{$event->created_at->format('d/m/Y')}} às {{$event->created_at->format('H:i')}} por {{$event->admin->name}}</small>
+    <small>Escrito em {{$event->created_at->format('d/m/Y \á\s H:i')}} por {{$event->admin->name}}</small>
     
     @auth
         {{-- Auth::id() == Auth::user()->id --}}
