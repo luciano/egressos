@@ -34,7 +34,9 @@ Route::prefix('admin')->group(function() {
     Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
-    Route::get('/users/create', 'AdminController@createUser')->name('admin.users.create');
+    Route::get('/users/register', 'Auth\RegisterController@showRegistrationForm')->name('admin.users.register');
+    Route::post('/users/register', 'Auth\RegisterController@register')->name('admin.users.register');
+    Route::delete('/users/remove/{id}', 'AdminController@removeUser')->name('admin.users.remove');
     
     Route::get('/admins/register', 'Auth\AdminRegisterController@showRegistrationForm')->name('admin.admins.register');
     Route::post('/admins/register', 'Auth\AdminRegisterController@register')->name('admin.admins.register');

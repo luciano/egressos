@@ -62,11 +62,11 @@ class AdminRegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($admins = $this->create($request->all())));
+        event(new Registered($admin = $this->create($request->all())));
 
-        //$this->guard('admins')->login($admins);
+        //$this->guard('admin')->login($admin);
 
-        return $this->registered($request, $admins)
+        return $this->registered($request, $admin)
                         ?: redirect($this->redirectPath());
     }
 

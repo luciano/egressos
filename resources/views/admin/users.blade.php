@@ -15,7 +15,7 @@
                     @endif
                     
                     <div class="btn-group">
-                        <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Criar Usuário</a>
+                        <a href="{{ route('admin.users.register') }}" class="btn btn-primary">Criar Usuário</a>
                         <a href="{{ route('user.home') }}" target="_blank" class="btn btn-default">Ir pra Login de Usuário</a>
                     </div>
                     <a href="{{ route('admin.admins.register') }}" class="btn btn-primary">Criar Administrador</a>

@@ -42,8 +42,8 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{$admins->links()}} 
             </div>
-            {{$admins->links()}} 
         </div>
     </div>    
 @endsection

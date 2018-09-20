@@ -45,13 +45,13 @@ class AdminController extends Controller
 
     public function listUser() 
     {
-        $users = User::orderBy('created_at', 'desc')->paginate(20);
-        return view('admin.list-user')->with('users', $users);;
+        $users = User::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.list-user')->with('users', $users);
     }
 
     public function listAdmin() 
     {
-        $admins = Admin::orderBy('created_at', 'desc')->paginate(20);
+        $admins = Admin::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.list-admin')->with('admins', $admins);
     }
 
@@ -63,6 +63,16 @@ class AdminController extends Controller
         $admin = Admin::find($id);
         $admin->delete();
         return redirect(route('admin.admins.list'))->with('success', 'Administrador removido com Sucesso');
+    }
+
+    public function removeUser($id)
+    {
+        if (!is_numeric($id))
+            return redirect(route('admin.users.list'));
+
+        $user = User::find($id);
+        $user->delete();
+        return redirect(route('admin.users.list'))->with('success', 'Usuário removido com Sucesso');
     }
 
     public function graph()
