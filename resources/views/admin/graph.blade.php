@@ -14,6 +14,8 @@
                         </div>
                     @endif
                     Mostrar coisas aqui!
+
+                    Use it <a href="http://lavacharts.com/#install" target="_blank">Larachart</a>
                 </div>
             </div>
         </div>

@@ -34,17 +34,21 @@ Route::prefix('admin')->group(function() {
     Route::post('/password/reset','Auth\AdminResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
 
-    // create user
-    Route::get('/create/user', 'AdminController@createUser')->name('admin.create.user');
-
-    // menu options
-    Route::get('/users', 'AdminController@menuUsers')->name('admin.menu.users');
-    Route::get('/graph', 'AdminController@menuGraph')->name('admin.menu.graph');
-    Route::get('/events', 'AdminController@menuEvents')->name('admin.menu.events');
+    Route::get('/users/register', 'Auth\RegisterController@showRegistrationForm')->name('admin.users.register');
+    Route::post('/users/register', 'Auth\RegisterController@register')->name('admin.users.register');
+    Route::delete('/users/remove/{id}', 'AdminController@removeUser')->name('admin.users.remove');
     
-    Route::get('/opportunities', 'AdminController@menuOpportunities')->name('admin.menu.opportunities');
+    Route::get('/admins/register', 'Auth\AdminRegisterController@showRegistrationForm')->name('admin.admins.register');
+    Route::post('/admins/register', 'Auth\AdminRegisterController@register')->name('admin.admins.register');
+    Route::delete('/admins/remove/{id}', 'AdminController@removeAdmin')->name('admin.admins.remove');
 
-    // news routes
+
+    Route::get('/users/list', 'AdminController@listUser')->name('admin.users.list');
+    Route::get('/admins/list', 'AdminController@listAdmin')->name('admin.admins.list');
+    Route::get('/users', 'AdminController@users')->name('admin.users.index');
+
+    Route::get('/graph', 'AdminController@graph')->name('admin.graph.index');
+
     Route::resource('news', 'NewsController')->only(['create', 'edit', 'store', 'update', 'destroy'])->names([
         'create' => 'admin.news.create',
         'edit' => 'admin.news.edit',
@@ -55,7 +59,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/news', 'NewsController@indexAdmin')->name('admin.news.index');
     Route::get('/news/{id}', 'NewsController@showAdmin')->name('admin.news.show');
 
-    // opportunities routes
     Route::resource('opportunities', 'OpportunitiesController')->only(['create', 'edit', 'store', 'update', 'destroy'])->names([
         'create' => 'admin.opportunities.create',
         'edit' => 'admin.opportunities.edit',
@@ -66,7 +69,6 @@ Route::prefix('admin')->group(function() {
     Route::get('/opportunities', 'OpportunitiesController@indexAdmin')->name('admin.opportunities.index');
     Route::get('/opportunities/{id}', 'OpportunitiesController@showAdmin')->name('admin.opportunities.show');
 
-    // events routes
     Route::resource('events', 'EventsController')->only(['create', 'edit', 'store', 'update', 'destroy'])->names([
         'create' => 'admin.events.create',
         'edit' => 'admin.events.edit',
@@ -76,7 +78,6 @@ Route::prefix('admin')->group(function() {
     ]);
     Route::get('/events', 'EventsController@indexAdmin')->name('admin.events.index');
     Route::get('/events/{id}', 'EventsController@showAdmin')->name('admin.events.show');
-
 });
 
 Route::resource('news', 'NewsController')->only(['index', 'show'])->names([

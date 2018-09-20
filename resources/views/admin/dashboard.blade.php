@@ -15,9 +15,6 @@
                     @endif
                     @component('components.who')    
                     @endcomponent
-
-                    <a href="{{ route('admin.create.user') }}" class="btn btn-primary">Criar Usuário</a>
-                    <a href="{{ route('user.home') }}" target="_blank" class="btn btn-default">Ir pra Login de Usuário</a>
                 </div>
             </div>
         </div>

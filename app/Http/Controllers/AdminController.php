@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Admin;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -26,36 +28,57 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function users()
+    {
+        return view('admin.users');
+    }
+
     public function createUser() 
     {
-        return view('admin.create_user');
+        return view('admin.create-user');
     }
 
-    public function menuUsers()
+    public function createAdmin() 
     {
-        return 'Users';
+        return view('admin.create-admin');
     }
 
-    public function menuGraph()
+    public function listUser() 
+    {
+        $users = User::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.list-user')->with('users', $users);
+    }
+
+    public function listAdmin() 
+    {
+        $admins = Admin::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.list-admin')->with('admins', $admins);
+    }
+
+    public function removeAdmin($id)
+    {
+        if (!is_numeric($id))
+            return redirect(route('admin.admins.list'));
+
+        $admin = Admin::find($id);
+        $admin->delete();
+        return redirect(route('admin.admins.list'))->with('success', 'Administrador removido com Sucesso');
+    }
+
+    public function removeUser($id)
+    {
+        if (!is_numeric($id))
+            return redirect(route('admin.users.list'));
+
+        $user = User::find($id);
+        $user->delete();
+        return redirect(route('admin.users.list'))->with('success', 'Usuário removido com Sucesso');
+    }
+
+    public function graph()
     {
         return view('admin.graph');
     }
-
-    public function menuEvents()
-    {
-        return 'Events';
-    }
-
-    public function menuNews()
-    {
-        return 'News';
-    }
-
-    public function menuOpportunities()
-    {
-        return 'Opportunities';
-    }
-
 }
 
 

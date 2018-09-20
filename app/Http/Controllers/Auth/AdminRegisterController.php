@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 
-class RegisterController extends Controller
+class AdminRegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/users/list';
+    protected $redirectTo = '/admin/admins/list';
 
     /**
      * Create a new controller instance.
@@ -49,7 +49,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        return view('auth.admin-register');
     }
 
     /**
@@ -62,11 +62,11 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        event(new Registered($admin = $this->create($request->all())));
 
-        //$this->guard('user')->login($user);
+        //$this->guard('admin')->login($admin);
 
-        return $this->registered($request, $user)
+        return $this->registered($request, $admin)
                         ?: redirect($this->redirectPath());
     }
 
@@ -81,7 +81,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'cpf_number' => 'required|string|max:11',
+            'job_title' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -94,11 +94,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Admin::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'cpf_number' => $data['cpf_number'],
+            'job_title' => $data['job_title'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Get the guard to be used during registration.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('admins');
     }
 }
