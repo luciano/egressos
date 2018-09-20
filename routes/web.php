@@ -38,6 +38,7 @@ Route::prefix('admin')->group(function() {
     
     Route::get('/admins/register', 'Auth\AdminRegisterController@showRegistrationForm')->name('admin.admins.register');
     Route::post('/admins/register', 'Auth\AdminRegisterController@register')->name('admin.admins.register');
+    Route::delete('/admins/remove/{id}', 'AdminController@removeAdmin')->name('admin.admins.remove');
 
 
     Route::get('/users/list', 'AdminController@listUser')->name('admin.users.list');

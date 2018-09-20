@@ -55,6 +55,16 @@ class AdminController extends Controller
         return view('admin.list-admin')->with('admins', $admins);
     }
 
+    public function removeAdmin($id)
+    {
+        if (!is_numeric($id))
+            return redirect(route('admin.admins.list'));
+
+        $admin = Admin::find($id);
+        $admin->delete();
+        return redirect(route('admin.admins.list'))->with('success', 'Administrador removido com Sucesso');
+    }
+
     public function graph()
     {
         return view('admin.graph');

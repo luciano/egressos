@@ -16,7 +16,6 @@
                             <th>Título</th>
                             <th>Criado em</th>
                             <th>Ultima modificação em</th>
-                            <th>Editar</th>
                             <th>Deletar</th>
                         </tr>
                     </thead>
@@ -28,11 +27,16 @@
                                 <td>{{$admin->job_title}}</td>
                                 <td>{{$admin->created_at->format('d/m/Y \á\s H:i')}}</td>
                                 <td>{{$admin->updated_at->format('d/m/Y \á\s H:i')}}</td>
-                                <td><a href="{{route('admin.users.index')}}"><span class="glyphicon glyphicon-edit"></span></a></td>
                                 @if (Auth::id() == $admin->id)
                                     <td></a></td>    
                                 @else
-                                    <td><a href="{{route('admin.users.index')}}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                    <td>
+                                        <form action="{{route('admin.admins.remove', $admin->id)}}" method="POST">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <button type="submit" class="btn-link"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <input type="hidden" name="_method" value="DELETE">
+                                        </form>
+                                    </td>
                                 @endif
                             </tr>
                         @endforeach

@@ -1,14 +1,14 @@
 @extends('admin.layouts.nav')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">ADMIN Register</div>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>Adicionar novo Administrador <a href="{{route('admin.users.index')}}" class="btn btn-default pull-right">Voltar</a></h3>
+            </div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('admin.admins.register') }}">
+            <div class="panel-body">
+                <form class="form-horizontal" method="POST" action="{{ route('admin.admins.register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -76,16 +76,14 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Registrar
+                            <div class="col-md-3 pull-right">
+                                <button type="submit" class="btn btn-success">
+                                    Salvar
                                 </button>
                             </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
-    </div>
-</div>
+    </div>    
 @endsection
