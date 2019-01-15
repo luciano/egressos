@@ -1,7 +1,7 @@
 @extends('admin.layouts.nav')
 
 @section('content')
-    <a href="{{route('admin.events.index')}}" class="btn btn-default">Voltar</a>
+    <a href="{{route('admin.events.index')}}" class="button">Voltar</a>
     <h1>{{$event->title}}</h1>
     {{-- <img style="width: 100%" src="/storage/cover_images/{{$event->cover_image}}" /> --}}
     <br><br>
@@ -19,11 +19,11 @@
     @auth
         {{-- Auth::id() == Auth::user()->id --}}
         @if(Auth::id() == $event->admin_id)
-            <a href="{{route('admin.events.edit', $event->id)}}" class="btn btn-default">Editar</a>
+            <a href="{{route('admin.events.edit', $event->id)}}" class="button">Editar</a>
             {!! Form::open(['route' => ['admin.events.destroy', $event->id]]) !!} 
             {{-- , 'class' => 'pull-right' --}}
                 {{Form::hidden('_method', 'DELETE')}}
-                {{Form::submit('Delete', ['class' => 'btn btn-danger', 'id' => 'btn-delete'])}}
+                {{Form::submit('Delete', ['class' => 'button alert', 'id' => 'btn-delete'])}}
             {!! Form::close() !!}
         @endif
         <br><br>

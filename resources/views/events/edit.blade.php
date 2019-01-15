@@ -14,8 +14,8 @@
         {{-- <div class="form-group">
             {{Form::file('cover_image')}}
         </div> --}}
-        <a href="{{route('admin.events.index')}}" class="btn btn-danger">Cancelar</a> 
+        <a href="{{route('admin.events.index')}}" class="button alert">Cancelar</a> 
         {{Form::hidden('_method', 'PUT')}}
-        {{Form::submit('Salvar', ['class' => 'btn btn-success'])}}
+        {{Form::submit('Salvar', ['class' => 'button success'])}}
     {!! Form::close() !!}
 @endsection

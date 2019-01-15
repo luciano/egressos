@@ -4,7 +4,7 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3>Adicionar novo Usuário <a href="{{route('admin.users.index')}}" class="btn btn-default pull-right">Voltar</a></h3>
+                <h3>Adicionar novo Usuário <a href="{{route('admin.users.index')}}" class="button pull-right">Voltar</a></h3>
             </div>
 
             <div class="panel-body">
@@ -77,7 +77,7 @@
 
                         <div class="form-group">
                             <div class="col-md-3 pull-right">
-                                <button type="submit" class="btn btn-success">
+                                <button type="submit" class="button success">
                                     Salvar
                                 </button>
                             </div>
@@ -151,7 +151,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button primary">
                                     Register
                                 </button>
                             </div>

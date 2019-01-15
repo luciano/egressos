@@ -15,48 +15,37 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="navbar-header">
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Egressos') }}
-                </a>
-            </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
+        <div class="title-bar" data-responsive-toggle="menu-navigation" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle="menu-navigation"></button>
+            <div class="title-bar-title"></div>
+        </div>
+
+        <div class="top-bar" id="menu-navigation" data-animate="hinge-in-from-top spin-out">
+            <div class="top-bar-left">
+                <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
+                    <li class="menu-text"><a class="js-menu-topbar" href="{{route('user.home')}}">{{ config('app.name', 'Egressos') }}</a></li>
                 </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
+            </div>
+            <div class="top-bar-right">
+                <ul class="dropdown vertical medium-horizontal menu" data-responsive-menu="drilldown medium-dropdown">
                     @guest
                         <li><a href="{{ route('login') }}">Login</a></li>
-                        {{-- <li><a href="{{ route('register') }}">Register</a></li> --}}
                     @else
-                        <li><a href="{{route('user.events.index')}}">Eventos</a></li>
-                        <li><a href="{{route('user.news.index')}}">Notícias</a></li>
-                        <li><a href="{{route('user.opportunities.index')}}">Oportunidades</a></li>
+                        <li role="menuitem"><a id="menu-events" class="js-menu-topbar" href="{{route('user.events.index')}}">Eventos</a></li>
+                        <li ><a id="menu-news" class="js-menu-topbar" href="{{route('user.news.index')}}">Notícias</a></li>
+                        <li><a id="menu-opportunities" class="js-menu-topbar" href="{{route('user.opportunities.index')}}">Oportunidades</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu">
+                            <ul class="menu vertical">
                                 <li>
                                     <a href="{{ route('user.logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Sair
                                     </a>
 
                                     <form id="logout-form" action="{{ route('user.logout') }}" method="POST" style="display: none;">
@@ -68,15 +57,18 @@
                     @endguest
                 </ul>
             </div>
-        </nav>
+        </div>
+       
         <div class="container">
             @include('layouts.messages')
             @yield('content')
-            @yield('scripts')
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script> $(document).foundation();</script>
+    <script src="{{ asset('js/topbar.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

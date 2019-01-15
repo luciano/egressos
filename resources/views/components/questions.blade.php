@@ -1,3 +1,11 @@
+<!-- Anchors (links) -->
+<a href="about.html" class="button">Learn More</a>
+<a href="#features" class="button">View All Features</a>
+
+<!-- Buttons (actions) -->
+<button type="button" class="success button">Save</button>
+<button type="button" class="alert button">Delete</button>
+
 <p>Preencher perguntas aqui</p>
 
 <p>Pegar dados especificos.. Tipo Tema do TCC, Area de Formação</p>

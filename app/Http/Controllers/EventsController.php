@@ -29,9 +29,13 @@ class EventsController extends Controller
         return view('events.index-admin')->with('events', $events);
     }
 
-    public function index()
+    public function index() //Request $request)
     {
         $events = Events::orderBy('created_at', 'desc')->paginate(10);
+        // avoid reload entire page
+        // if($request->ajax()) {
+        //     return view('events.index')->with('events', $events)->renderSections()['content'];
+        // }
         return view('events.index')->with('events', $events);
     }
 

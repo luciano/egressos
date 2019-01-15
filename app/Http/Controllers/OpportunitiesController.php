@@ -29,9 +29,13 @@ class OpportunitiesController extends Controller
         return view('opportunities.index-admin')->with('opportunities', $opportunities);
     }
 
-    public function index()
+    public function index() //Request $request)
     {
         $opportunities = Opportunities::orderBy('created_at', 'desc')->paginate(10);
+        // avoid reload entire page
+        // if($request->ajax()) {
+        //     return view('opportunities.index')->with('opportunities', $opportunities)->renderSections()['content'];
+        // }
         return view('opportunities.index')->with('opportunities', $opportunities);
     }
 
