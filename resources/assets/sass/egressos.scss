@@ -2,3 +2,28 @@
     max-width: 80%;
     margin: auto;
 }
+
+.footer {
+    background: #EEE;
+    color: gray;
+    font-size: x-small;
+    text-align: center;
+    
+    a {
+        text-decoration-color: none;
+        color: inherit;
+    }
+}
+
+.footer-polos {
+    max-width: 80%;
+    margin: auto;
+
+    font-size: x-small;
+    color: gray;
+
+    a {
+        text-decoration-color: none;
+        color: inherit;
+    }
+}

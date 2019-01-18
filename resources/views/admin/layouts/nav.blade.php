@@ -65,6 +65,9 @@
             @include('layouts.messages')
             @yield('content')
         </div>
+        @auth
+            @include('layouts.footer')
+        @endauth
     </div>
 
     <!-- Scripts -->

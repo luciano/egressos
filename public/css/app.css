@@ -70,6 +70,32 @@
   margin: auto;
 }
 
+.footer {
+  background: #EEE;
+  color: gray;
+  font-size: x-small;
+  text-align: center;
+}
+
+.footer a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
+.footer-polos {
+  max-width: 80%;
+  margin: auto;
+  font-size: x-small;
+  color: gray;
+}
+
+.footer-polos a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.4.3
