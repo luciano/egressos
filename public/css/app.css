@@ -67,6 +67,7 @@
 
 .container {
   max-width: 80%;
+  min-width: 50%;
   margin: auto;
 }
 
