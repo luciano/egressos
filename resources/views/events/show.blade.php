@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <a href="{{route('user.events.index')}}" class="btn btn-default">Voltar</a>
+    <a href="{{route('user.events.index')}}" class="button">Voltar</a>
     <h1>{{$event->title}}</h1>        
     {{-- <img style="width: 100%" src="/storage/cover_images/{{$post->cover_image}}" /> --}}
     <br><br>

@@ -1,0 +1,29 @@
+.top-bar {
+    color: $topbar-text-color;
+        
+    a { 
+        color: $topbar-text-color;
+    } 
+    a:hover {
+        color: $topbar-hover-color;
+        // background: $topbar-hover-background;
+    }
+    
+    .menu {}
+    margin-bottom: 15px;
+}
+
+$topbar-padding: 0.5rem;
+$topbar-background: $topbar-background-color;
+$topbar-submenu-background: $topbar-background;
+$topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
+$topbar-input-width: 200px;
+$topbar-unstack-breakpoint: medium;
+$topbar-dropdown-toggle-color: $topbar-text-color;
+$topbar-dropdown-link-color: $topbar-text-color;
+$topbar-dropdown-link-bg: $topbar-hover-color;
+
+$topbar-menu-link-color: #c89c3c;
+$topbar-menu-icon-color: #c83ca5;
+$topbar-menu-link-color-toggled: #68c83c;
+$topbar-menu-icon-color-toggled: #c83c3c;

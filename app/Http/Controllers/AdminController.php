@@ -33,16 +33,6 @@ class AdminController extends Controller
         return view('admin.users');
     }
 
-    public function createUser() 
-    {
-        return view('admin.create-user');
-    }
-
-    public function createAdmin() 
-    {
-        return view('admin.create-admin');
-    }
-
     public function listUser() 
     {
         $users = User::orderBy('created_at', 'desc')->paginate(10);
@@ -73,6 +63,12 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect(route('admin.users.list'))->with('success', 'Usuário removido com Sucesso');
+    }
+
+    public function detailsUser($id) 
+    {
+        $user = User::find($id);
+        return 'details for '.$user->name.' - id= '.$user->id;
     }
 
     public function graph()

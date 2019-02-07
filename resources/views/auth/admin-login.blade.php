@@ -1,69 +1,41 @@
 @extends('admin.layouts.nav')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">ADMIN Login</div>
+    <form class="log-in-form" method="POST" action="{{ route('admin.login.submit') }}">
+        {{ csrf_field() }}
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('admin.login.submit') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('admin.password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <h4 class="text-center">Administrador</h4>
+        
+        <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label for="email">E-mail
+                <input id="email" type="email" name="email" autocomplete="username email" value="{{ old('email') }}" required autofocus placeholder="enderecoemail@email.com">
+            </label>
+            <div>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
             </div>
         </div>
-    </div>
-</div>
+
+        <div class="password-wrapper {{ $errors->has('password') ? ' has-error' : '' }}">
+            <label for="password">Senha</label>
+            <input id="password" type="password" name="password" class="password" autocomplete="current-password" placeholder="senha" required>
+            <button class="unmask" type="button">Unmask</button>
+
+            @if ($errors->has('password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
+        </div>
+
+        <p><input type="submit" class="button expanded" value="Entrar"></p>
+        <p class="text-center"><a class="btn btn-link" href="{{ route('admin.password.request') }}">Esqueceu a senha?</a></p>
+    </form>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/login.js') }}"></script>
 @endsection

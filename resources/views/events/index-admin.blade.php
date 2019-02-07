@@ -4,7 +4,7 @@
     <h1>Eventos para Admin</h1>
     <h5>{{Carbon\Carbon::now()->format('d/m/Y H:i:s')}}</h5>
 
-    <p></p><a href="{{route('admin.events.create')}}" class="btn btn-primary">Criar Evento</a> </p>
+    <p></p><a href="{{route('admin.events.create')}}" class="button primary">Criar Evento</a> </p>
     
     @if (count($events) > 0)
         @foreach ($events as $event)

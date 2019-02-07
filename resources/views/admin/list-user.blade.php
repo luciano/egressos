@@ -4,7 +4,7 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3>Lista de Usuários <a href="{{route('admin.users.index')}}" class="btn btn-default pull-right">Voltar</a></h3>
+                <h3>Lista de Usuários <a href="{{route('admin.users.index')}}" class="button pull-right">Voltar</a></h3>
             </div>
 
             <div class="panel-body">
@@ -28,7 +28,7 @@
                                 <td>{!! preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $user->cpf_number) !!}</td>
                                 <td>{{$user->created_at->format('d/m/Y \á\s H:i')}}</td>
                                 <td>{{$user->updated_at->format('d/m/Y \á\s H:i')}}</td>
-                                <td><a href="{{route('admin.users.index')}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                                <td><a href="{{route('admin.users.details', $user->id)}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
                                 <td>
                                     <form action="{{route('admin.users.remove', $user->id)}}" method="POST">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">

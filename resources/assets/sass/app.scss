@@ -1,11 +1,14 @@
+@import "../../../node_modules/foundation-sites/scss/settings/_settings";
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import "_colors";
 
-// Variables
-@import "variables";
+@import "topbar";
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "login";
 
-@import "egressos"
+@import "egressos";
+
+@import "../../../node_modules/foundation-sites/scss/foundation";
+
+@include foundation-everything(true);
+@include foundation-everything($prototype: true);

@@ -4,7 +4,7 @@
     <h1>Notícias para Admin</h1>
     <h5>{{Carbon\Carbon::now()->format('d/m/Y H:i:s')}}</h5>
 
-    <p></p><a href="{{route('admin.news.create')}}" class="btn btn-primary">Criar Notícia</a> </p>
+    <p></p><a href="{{route('admin.news.create')}}" class="button primary">Criar Notícia</a> </p>
     
     @if (count($news) > 0)
         @foreach ($news as $new)
