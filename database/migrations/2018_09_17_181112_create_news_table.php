@@ -17,7 +17,8 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->mediumText('body');
-            $table->integer('user_id');
+            $table->unsignedInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();
         });
     }
