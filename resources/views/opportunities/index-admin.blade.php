@@ -19,7 +19,7 @@
         {{-- using pagination automatically --}}
         {{$opportunities->links()}} 
     @else
-        <p>Nenhuma oportunidade encontrada!</p>
+        <p align="center">Nenhuma oportunidade encontrada!</p>
     @endif 
    
 @endsection

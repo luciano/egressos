@@ -7,7 +7,7 @@
 @endif
 
 @if (session('success'))
-    <div class="success callout width-50" data-closable>
+    <div class="success callout" data-closable>
         <h5 class="text-center">{{session('success')}}</h5>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
             <span aria-hidden="true">&times;</span>
@@ -16,7 +16,7 @@
 @endif
 
 @if (session('error'))
-    <div class="danger callout width-50" data-closable>
+    <div class="danger callout" data-closable>
         <h5>{{session('error')}}</h5>
         <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
             <span aria-hidden="true">&times;</span>

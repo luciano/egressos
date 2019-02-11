@@ -19,7 +19,7 @@
         {{-- using pagination automatically --}}
         {{$events->links()}} 
     @else
-        <p>Nenhuma evento encontrado!</p>
+        <p align="center">Nenhuma evento encontrado!</p>
     @endif 
    
 @endsection

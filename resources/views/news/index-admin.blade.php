@@ -25,7 +25,7 @@
         {{-- using pagination automatically --}}
         {{$news->links()}} 
     @else
-        <p>Nenhuma notícia encontrada!</p>
+        <p align="center">Nenhuma notícia encontrada!</p>
     @endif 
    
 @endsection

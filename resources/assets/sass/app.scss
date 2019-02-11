@@ -8,6 +8,8 @@
 
 @import "egressos";
 
+@import "/vendor/unisharp/laravel-ckeditor/contents.css";
+
 @import "../../../node_modules/foundation-sites/scss/foundation";
 
 @include foundation-everything(true);
