@@ -98,6 +98,10 @@
   color: inherit;
 }
 
+.btn-margin-10 {
+  margin: 10px;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.5.3

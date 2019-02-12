@@ -1,19 +1,19 @@
 @extends('admin.layouts.nav')
 
 @section('content')
-    <h1>Criar nova Notícia</h1>
+    <h3 class="text-center">Criar nova Notícia</h3><br>
+
     {!! Form::open(['route' => 'admin.news.store']) !!}
-        <div class="form-group">
-            {{Form::label('title', 'Título da Notícia')}}
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Título'])}}
-        </div>
-        <div class="form-group">
-            {{Form::label('body', 'Corpo da Notícia')}}
-            {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Corpo da Notícia'])}}
-        </div>
+        {{Form::label('title', 'Título da Notícia')}}
+        {{Form::text('title', '', ['placeholder' => 'Título da Notícia'])}}
+        {{Form::label('body', 'Corpo da Notícia')}}
+        {{Form::textarea('body', '', ['id' => 'article-ckeditor', 'placeholder' => 'Corpo da Notícia'])}}
+
         {{-- <div class="form-group">
             {{Form::file('cover_image')}}
         </div> --}}
+
+        <br>
         <a href="{{route('admin.news.index')}}" class="button alert">Cancelar</a> 
         {{Form::submit('Salvar', ['class' => 'button success'])}}
     {!! Form::close() !!}
