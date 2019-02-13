@@ -98,8 +98,10 @@
   color: inherit;
 }
 
-.btn-margin-10 {
-  margin: 10px;
+.long-text-justify {
+  text-align: justify;
+  width: 80%;
+  margin: auto;
 }
 
 /**

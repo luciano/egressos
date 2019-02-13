@@ -2,10 +2,12 @@
 
 @section('content')
     <a href="{{route('admin.opportunities.index')}}" class="button">Voltar</a>
-    <h1>{{$opportunity->title}}</h1>
+
+    <h3 class="text-center">{{$opportunity->title}}</h3>
+    
     {{-- <img style="width: 100%" src="/storage/cover_images/{{$opportunity->cover_image}}" /> --}}
     <br><br>
-    <div>
+    <div class="long-text-justify">
         {{-- to render HTML use double ! --}}
         {!!$opportunity->body!!}
     </div>
@@ -15,15 +17,9 @@
         <small>Atualizado em {{$opportunity->updated_at->format('d/m/Y')}} às {{$opportunity->updated_at->format('H:i')}}</small><br>
     @endif
     <small>Escrito em {{$opportunity->created_at->format('d/m/Y')}} às {{$opportunity->created_at->format('H:i')}} por {{$opportunity->admin->name}}</small>
-    
+    <br><br>
     @auth
         <div class="button-group">
-            <a class="secondary button">Editar isso View</a>
-            <a class="success button">Edit</a>
-            <a class="warning button">Share</a>
-            <a class="alert button">Delete</a>
-        </div>
-        {{-- Auth::id() == Auth::user()->id --}}
         @if(Auth::id() == $opportunity->admin_id)
             <a href="{{route('admin.opportunities.edit', $opportunity->id)}}" class="button">Editar</a>
             {!! Form::open(['route' => ['admin.opportunities.destroy', $opportunity->id]]) !!} 
@@ -32,6 +28,7 @@
                 {{Form::submit('Delete', ['class' => 'button alert', 'id' => 'btn-delete'])}}
             {!! Form::close() !!}
         @endif
+        </div>
         <br><br>
     @endauth
 @endsection
