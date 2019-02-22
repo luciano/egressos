@@ -8,7 +8,7 @@
             </div>
 
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="{{ route('admin.users.register') }}">
+                <form class="form-horizontal" method="POST" action="{{ route('admin.users.register') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -82,13 +82,16 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- ok -->
+                        <label for="file-upload" class="custom-file-upload button warning">
+                            <i class="fi-upload-cloud"></i> Importar dados de arquivo
+                        </label>
+                        <input type='file' name='lista-usuarios' id='file-upload' accept='.csv,.json'>
+                        <!-- {{Form::file('lista-usuarios', ['id' => 'file-upload', 'accept' => '.csv'])}} -->
+                        <span id='file-name' class="file-name-input"></span>
                     </form>
-                    <!-- ok -->
-                    <label for="file-upload" class="custom-file-upload button warning">
-                        <i class="fi-upload-cloud"></i> Importar dados de arquivo
-                    </label>
-                    {{Form::file('lista', ['id' => 'file-upload', 'accept' => '.csv'])}}
-                    <span id='file-name' class="file-name-input"></span>
+                    
             </div>
         </div>
     </div>    

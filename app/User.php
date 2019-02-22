@@ -38,4 +38,10 @@ class User extends Authenticatable
     {
         $this->notify(new UserResetPasswordNotification($token));
     }
+
+    public function student()
+    {
+        // a user has one Student
+        return $this->hasOne('App\Student');
+    }
 }
