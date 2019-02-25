@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
+use App\Student;
+use App\Address;
+use App\Phone;
+use App\StudentCourse;
+use App\Course;
 
 class AdminController extends Controller
 {
@@ -68,7 +73,17 @@ class AdminController extends Controller
     public function detailsUser($id) 
     {
         $user = User::find($id);
-        return 'details for '.$user->name.' - id= '.$user->id;
+
+        if ($user->student == null)
+            return view('admin.details-user', ['user' => $user]);
+
+        return view('admin.details-user', [
+            'user' => $user,
+            'student' => $user->student,
+            'address' => $user->student->address,
+            'phones' => $user->student->phone,
+            'student_courses' => $user->student->student_course,
+        ]);
     }
 
     public function graph()

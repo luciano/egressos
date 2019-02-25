@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class StudentCourse extends Model
 {
+    protected $table = 'student_courses';
+    // Primary Key
+    public $primaryKey = 'id';
+    // Timestamps
+    public $timestamps = true;
+
     protected $fillable = [
         'conclusion_date', 'student_id', 'course_id'
     ];
@@ -17,6 +23,6 @@ class StudentCourse extends Model
 
     public function course()
     {
-        return $this->hasOne('App\Course');
+        return $this->hasOne('App\Course', 'id', 'course_id');
     }
 }

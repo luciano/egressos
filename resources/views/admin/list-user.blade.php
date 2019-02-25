@@ -28,11 +28,11 @@
                                 <td>{!! preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $user->cpf_number) !!}</td>
                                 <td>{{$user->created_at->format('d/m/Y \á\s H:i')}}</td>
                                 <td>{{$user->updated_at->format('d/m/Y \á\s H:i')}}</td>
-                                <td><a href="{{route('admin.users.details', $user->id)}}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                                <td><a href="{{route('admin.users.details', $user->id)}}"><span class="fi fi-eye"></span></a></td>
                                 <td>
                                     <form action="{{route('admin.users.remove', $user->id)}}" method="POST">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <button type="submit" class="btn-link"><span class="glyphicon glyphicon-trash"></span></button>
+                                        <button type="submit" class="btn-link"><span class="fi fi-trash"></span></button>
                                         <input type="hidden" name="_method" value="DELETE">
                                     </form>
                                 </td>

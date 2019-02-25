@@ -33,7 +33,7 @@
                                     <td>
                                         <form action="{{route('admin.admins.remove', $admin->id)}}" method="POST">
                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                            <button type="submit" class="btn-link"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <button type="submit" class="btn-link"><span class="fi fi-trash"></span></button>
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </td>

@@ -69,7 +69,6 @@ class RegisterController extends Controller
     {
         if ($request->hasFile('lista-usuarios')) {
             $file = file_get_contents($request->file('lista-usuarios'));
-            // limpar comentarios do json file
 
             $file = utf8_encode($file); 
             $jsonFile = json_decode($file, true);
@@ -79,7 +78,7 @@ class RegisterController extends Controller
             {
                 ++$i;
                 if ($i == 10) break;
-                //echo $dataArray['nome'].' - '.$dataArray['matricula']. '<br>';
+
                 // insert user
                 $userInfo = array(
                     '_token' => Str::random(32),
@@ -110,9 +109,6 @@ class RegisterController extends Controller
                 } else {
                     $dataArray['tipo'] = "Especialização"; 
                 }
-
-                echo '<pre>'; print_r($dataArray); echo '</pre>';
-                //var_dump($userInfo);
 
                 // verificar
                 //$this->validator($userInfo)->validate();
@@ -165,7 +161,6 @@ class RegisterController extends Controller
             }
 
             /*
-            // dd($a);
             foreach ($file as $key => $value) {
                 // create here the fields to fill the DB
                 // nome	
@@ -219,30 +214,14 @@ class RegisterController extends Controller
                 echo '<br><br>';
             }
             */
-
-            /*
-            enviar array assim para validar em cada user
-            "_token" => "LDLm8kixzAND0FBJTIbtWCeJUCa7jEWDjJJYfxlK"
-  "name" => "aaaaaaa"
-  "email" => "sdsaw@ead.ufvjm.edu.br"
-  "cpf_number" => "12341242"
-  "password" => "DeveloperDE@D"
-  "password_confirmation" => "DeveloperDE@D"
-
-            */
-            dd($request->all());
-
-            // $token = Str::random(32);
-            // dd($token);
-
             return "yes it has a file";
         } else {
             return "no";
         }
 
-        $this->validator($request->all())->validate();
+        //$this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        //event(new Registered($user = $this->create($request->all())));
 
         //$this->guard('user')->login($user);
 
