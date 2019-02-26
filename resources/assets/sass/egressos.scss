@@ -52,3 +52,23 @@ input[type="file"] {
     vertical-align: super;
     font-size: medium;
 }
+
+.detail-user-container {
+    max-width: 65%;
+    padding: 15px;
+
+    a {
+        text-decoration-color: none;
+        color: inherit;
+    }
+}
+
+.detail-user-card {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.detail-user-foot-info {
+    padding: 15px;
+    color: grey;
+}

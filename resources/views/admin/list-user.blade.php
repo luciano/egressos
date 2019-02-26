@@ -4,7 +4,8 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3>Lista de Usuários <a href="{{route('admin.users.index')}}" class="button pull-right">Voltar</a></h3>
+                <a href="{{route('admin.users.index')}}" class="button">Voltar</a>
+                <h3 class="text-center">Lista de Usuários</h3>
             </div>
 
             <div class="panel-body">

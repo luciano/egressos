@@ -715,6 +715,27 @@ input[type="file"] {
   font-size: medium;
 }
 
+.detail-user-container {
+  max-width: 65%;
+  padding: 15px;
+}
+
+.detail-user-container a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
+.detail-user-card {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.detail-user-foot-info {
+  padding: 15px;
+  color: grey;
+}
+
 /**
  * Foundation for Sites by ZURB
  * Version 6.5.3
