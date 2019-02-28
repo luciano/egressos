@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/topbar.js', 'public/js')
     .js('resources/assets/js/login.js', 'public/js')
     .js('resources/assets/js/register.js', 'public/js')
+    .js('resources/assets/js/list-users.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css');
 
 //mix.sass('resources/assets/sass/app.scss', 'public/css');

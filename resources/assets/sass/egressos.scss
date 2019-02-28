@@ -72,3 +72,23 @@ input[type="file"] {
     padding: 15px;
     color: grey;
 }
+
+.table-list-info-user {
+    
+    th, tr {
+        text-align: center;
+    }
+
+    i {
+        font-size: 25px;
+        cursor:pointer;
+    }
+}
+
+$card-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+.callout-no-result {
+    margin-left: 15rem;
+    margin-right: 15rem;
+    margin-top: 3rem;
+}

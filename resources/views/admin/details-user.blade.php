@@ -1,7 +1,8 @@
 @extends('admin.layouts.nav')
 
 @section('content')
-<a href="{{ route('admin.users.list') }}" class="button">Voltar</a>
+
+<a href="{{ route('admin.users.list') }}" class="button radius bordered shadow">Voltar</a>
 
 <div class="card container detail-user-container">
     <div class="card-section">
@@ -52,7 +53,7 @@
 
     <div class="detail-user-foot-info">
         <span class="float-left">Criado em {{$user->created_at->format('d/m/Y')}}</span>
-        <span class="float-right">Ultima modificação em {{$user->updated_at->format('d/m/Y')}}</span>
+        <span class="float-right">Última modificação em {{$user->updated_at->format('d/m/Y')}}</span>
     </div>
 </div>
 

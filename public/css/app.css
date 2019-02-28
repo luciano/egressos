@@ -659,83 +659,6 @@
   border-radius: 50%;
 }
 
-.container {
-  max-width: 80%;
-  min-width: 50%;
-  min-height: 500px;
-  margin: auto;
-}
-
-.footer {
-  background: #EEE;
-  color: gray;
-  font-size: x-small;
-  text-align: center;
-}
-
-.footer a {
-  -webkit-text-decoration-color: none;
-          text-decoration-color: none;
-  color: inherit;
-}
-
-.footer-polos {
-  max-width: 80%;
-  margin: auto;
-  font-size: x-small;
-  color: gray;
-}
-
-.footer-polos a {
-  -webkit-text-decoration-color: none;
-          text-decoration-color: none;
-  color: inherit;
-}
-
-.long-text-justify {
-  text-align: justify;
-  width: 80%;
-  margin: auto;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-.custom-file-upload {
-  border: 1px solid #ccc;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-}
-
-.file-name-input {
-  margin: 10px;
-  vertical-align: super;
-  font-size: medium;
-}
-
-.detail-user-container {
-  max-width: 65%;
-  padding: 15px;
-}
-
-.detail-user-container a {
-  -webkit-text-decoration-color: none;
-          text-decoration-color: none;
-  color: inherit;
-}
-
-.detail-user-card {
-  margin-left: 25px;
-  margin-right: 25px;
-}
-
-.detail-user-foot-info {
-  padding: 15px;
-  color: grey;
-}
-
 /**
  * Foundation for Sites by ZURB
  * Version 6.5.3
@@ -17813,5 +17736,98 @@ ol.list-upper-roman {
 .padding-vertical-3 {
   padding-top: 3rem !important;
   padding-bottom: 3rem !important;
+}
+
+.container {
+  max-width: 80%;
+  min-width: 50%;
+  min-height: 500px;
+  margin: auto;
+}
+
+.footer {
+  background: #EEE;
+  color: gray;
+  font-size: x-small;
+  text-align: center;
+}
+
+.footer a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
+.footer-polos {
+  max-width: 80%;
+  margin: auto;
+  font-size: x-small;
+  color: gray;
+}
+
+.footer-polos a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
+.long-text-justify {
+  text-align: justify;
+  width: 80%;
+  margin: auto;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.file-name-input {
+  margin: 10px;
+  vertical-align: super;
+  font-size: medium;
+}
+
+.detail-user-container {
+  max-width: 65%;
+  padding: 15px;
+}
+
+.detail-user-container a {
+  -webkit-text-decoration-color: none;
+          text-decoration-color: none;
+  color: inherit;
+}
+
+.detail-user-card {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.detail-user-foot-info {
+  padding: 15px;
+  color: grey;
+}
+
+.table-list-info-user th,
+.table-list-info-user tr {
+  text-align: center;
+}
+
+.table-list-info-user i {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.callout-no-result {
+  margin-left: 15rem;
+  margin-right: 15rem;
+  margin-top: 3rem;
 }
 
