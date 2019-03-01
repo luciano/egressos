@@ -57,8 +57,4 @@
     </div>
 </div>
 
-<!-- - mexer no layout pra mostrar informacoes
-- configrar layout da pagina de listar usuarios
-- configurar layout de criar usuarios pra nao precisar preencher se for fazer por upload -->
-
 @endsection

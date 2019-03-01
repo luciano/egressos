@@ -44,6 +44,7 @@ input[type="file"] {
     border: 1px solid #ccc;
     display: inline-block;
     padding: 6px 12px;
+    font-size: 25px;
     cursor: pointer;
 }
 
@@ -85,10 +86,22 @@ input[type="file"] {
     }
 }
 
-$card-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-
 .callout-no-result {
     margin-left: 15rem;
     margin-right: 15rem;
     margin-top: 3rem;
+}
+
+.add-user-container {
+    margin: auto;
+    width: 80%;
+    padding: 15px;
+}
+
+.add-user-from-file {
+    margin: auto;
+}
+
+.help-text-error {
+    color: red;
 }

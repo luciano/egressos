@@ -47,7 +47,7 @@ class AdminController extends Controller
         {
             if ($request['course'] == "all" && $request['typ'] == "all" && $request['year'] == "all")
             {
-                $users = User::orderBy('name', 'asc')->paginate(15);
+                $users = User::orderBy('name', 'asc')->get();
                 return view('admin.list-user')->with('users', $users)->renderSections()['info-user'];
             }
             else if ($request['course'] == "all" && $request['typ'] == "all" && $request['year'] != "all")
@@ -144,26 +144,33 @@ class AdminController extends Controller
                 }
             }
 
+            usort($users, function ($user1, $user2) {
+                return $user1['name'] <=> $user2['name'];
+            });
+
+            return view('admin.list-user')->with('users', collect($users))->renderSections()['info-user']; 
+            
+            // reloading whole page when go to next page
             // create paginator from array
             // Get current page form url e.x. &page=1
-            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+            // $currentPage = LengthAwarePaginator::resolveCurrentPage();
     
-            // Create a new Laravel collection from the array data
-            $itemCollection = collect($users);
+            // // Create a new Laravel collection from the array data
+            // $itemCollection = collect($users);
     
-            // Define how many items we want to be visible in each page
-            $perPage = 15;
+            // // Define how many items we want to be visible in each page
+            // $perPage = 15;
     
-            // Slice the collection to get the items to display in current page
-            $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+            // // Slice the collection to get the items to display in current page
+            // $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
     
-            // Create our paginator and pass it to the view
-            $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+            // // Create our paginator and pass it to the view
+            // $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
     
-            // set url path for generted links
-            $paginatedItems->setPath($request->url());
+            // // set url path for generted links
+            // $paginatedItems->setPath($request->url());
 
-            return view('admin.list-user')->with('users', $paginatedItems)->renderSections()['info-user'];
+            // return view('admin.list-user')->with('users', $paginatedItems)->renderSections()['info-user'];
         }
 
         $courses = Course::orderBy('name', 'asc')->get();

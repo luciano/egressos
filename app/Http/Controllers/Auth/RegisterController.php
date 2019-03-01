@@ -77,7 +77,8 @@ class RegisterController extends Controller
             foreach ($jsonFile as $dataArray) 
             {
                 ++$i;
-                if ($i == 10) break;
+                if ($i < 5) continue;
+                if ($i == 20) break;
 
                 // insert user
                 $userInfo = array(

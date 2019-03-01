@@ -93,7 +93,6 @@ $(document).ready(function () {
             },
             data: { 'course': course, 'typ': typ, 'year': year },
             success: function success(result) {
-                console.log(result);
                 $(".info-user").html(result);
             }
         });

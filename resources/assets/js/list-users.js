@@ -15,7 +15,6 @@ $(document).ready( () => {
             },
             data: {'course': course, 'typ': typ, 'year': year},
             success: (result) => {
-                console.log(result);
                 $(".info-user").html(result);
             }
         });

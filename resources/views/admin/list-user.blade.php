@@ -52,6 +52,7 @@
                     <table class="hover table-list-info-user">
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Nome</th>
                                 <th>Email</th>
                                 <th>CPF</th>
@@ -62,8 +63,10 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $i = 1; ?>
                             @foreach ($users as $user)
                                 <tr>
+                                    <td>{{$i++}}</td>
                                     <td class="text-left">{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
                                     <td>{!! preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $user->cpf_number) !!}</td>
@@ -81,7 +84,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{$users->links()}} 
+                    
                 @else
                     <div class="callout large alert callout-no-result">
                         <h5 class="text-center">Nenhum resultado encontrado!</h5>
